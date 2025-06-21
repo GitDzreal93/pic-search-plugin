@@ -1,0 +1,231 @@
+/* 扇贝单词图片搜索 - 样式文件 */
+
+/* 全局样式重置 */
+.word-search-active {
+  cursor: crosshair !important;
+}
+
+.word-search-active * {
+  cursor: crosshair !important;
+}
+
+/* 快捷键激活状态的视觉提示 */
+.word-search-active::before {
+  content: '' !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  pointer-events: none !important;
+  z-index: 2147483646 !important;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(74, 144, 226, 0.03) 0%,
+    rgba(74, 144, 226, 0.01) 30%,
+    transparent 60%) !important;
+  opacity: 0 !important;
+  animation: searchModeActivate 0.3s ease-out forwards !important;
+}
+
+@keyframes searchModeActivate {
+  to {
+    opacity: 1 !important;
+  }
+}
+
+/* 悬停效果 */
+.word-search-hover {
+  background: linear-gradient(135deg, 
+    rgba(74, 144, 226, 0.12), 
+    rgba(80, 200, 120, 0.12)
+  ) !important;
+  border-radius: 4px !important;
+  box-shadow: 
+    0 2px 12px rgba(74, 144, 226, 0.25),
+    0 1px 4px rgba(74, 144, 226, 0.15),
+    0 0 0 1px rgba(74, 144, 226, 0.2) !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative !important;
+  transform: translateY(-1px) !important;
+}
+
+.word-search-hover::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -2px !important;
+  left: -2px !important;
+  right: -2px !important;
+  bottom: -2px !important;
+  background: linear-gradient(135deg, 
+    rgba(74, 144, 226, 0.1), 
+    rgba(80, 200, 120, 0.1)
+  ) !important;
+  border-radius: 6px !important;
+  z-index: -1 !important;
+  opacity: 0 !important;
+  transition: opacity 0.2s ease !important;
+}
+
+.word-search-hover:hover::before {
+  opacity: 1 !important;
+}
+
+/* 点击效果 */
+.word-search-clicked {
+  background: linear-gradient(135deg, 
+    rgba(74, 144, 226, 0.3), 
+    rgba(80, 200, 120, 0.3)
+  ) !important;
+  transform: scale(1.02) !important;
+  animation: wordSearchPulse 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 
+    0 4px 16px rgba(74, 144, 226, 0.4),
+    0 0 0 2px rgba(74, 144, 226, 0.5) !important;
+}
+
+@keyframes wordSearchPulse {
+  0% { 
+    transform: scale(1);
+    box-shadow: 0 2px 8px rgba(74, 144, 226, 0.2);
+  }
+  30% { 
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+  }
+  60% { 
+    transform: scale(1.02);
+    box-shadow: 0 4px 16px rgba(74, 144, 226, 0.4);
+  }
+  100% { 
+    transform: scale(1.02);
+    box-shadow: 0 4px 16px rgba(74, 144, 226, 0.4);
+  }
+}
+
+/* 提示框样式 */
+.word-search-tooltip {
+  position: absolute !important;
+  z-index: 2147483647 !important; /* 最高层级 */
+  background: rgba(255, 255, 255, 0.95) !important; /* 恢复原来的背景透明度 */
+  backdrop-filter: blur(12px) saturate(120%) !important; /* 保持增强模糊效果 */
+  -webkit-backdrop-filter: blur(12px) saturate(120%) !important;
+  border-radius: 4px !important; /* 保持减小的圆角 */
+  padding: 4px 8px !important; /* 保持减小的内边距 */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+  font-size: 11px !important; /* 保持减小的字体 */
+  font-weight: 400 !important; /* 保持减轻的字重 */
+  color: #333 !important; /* 恢复原来的文字颜色 */
+  box-shadow: 
+    0 1px 4px rgba(0, 0, 0, 0.06),
+    0 0.5px 2px rgba(0, 0, 0, 0.04) !important; /* 保持减弱的阴影 */
+  animation: tooltipFadeIn 0.15s cubic-bezier(0.4, 0, 0.2, 1) !important; /* 保持加快的动画 */
+  pointer-events: none !important;
+  user-select: none !important;
+  opacity: 0.95 !important; /* 恢复原来的整体透明度 */
+  transition: opacity 0.15s ease !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important; /* 恢复原来的边框 */
+  transform: translateY(2px) !important; /* 保持稍微下移避免遮挡 */
+}
+
+.tooltip-content {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important; /* 保持减小的间距 */
+  white-space: nowrap !important;
+}
+
+.tooltip-icon {
+  font-size: 12px !important; /* 保持减小的图标 */
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3)) !important; /* 恢复原来的阴影 */
+}
+
+.tooltip-text {
+  font-weight: 400 !important; /* 保持减轻的字重 */
+  letter-spacing: 0.005em !important;
+  font-size: 11px !important; /* 保持减小的字体 */
+  line-height: 1.2 !important; /* 保持减小的行高 */
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0 !important;
+    transform: translateY(-8px) scale(0.95) !important;
+  }
+  to {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1) !important;
+  }
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+  .word-search-tooltip {
+    background: rgba(40, 40, 40, 0.95) !important; /* 恢复深色背景透明度 */
+    color: #fff !important; /* 恢复白色文字 */
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 
+      0 1px 4px rgba(0, 0, 0, 0.2),
+      0 0.5px 2px rgba(0, 0, 0, 0.15) !important;
+  }
+}
+
+/* 高对比度模式 */
+@media (prefers-contrast: high) {
+  .word-search-hover {
+    background: rgba(0, 0, 255, 0.3) !important;
+    border: 2px solid #0000ff !important;
+  }
+  
+  .word-search-clicked {
+    background: rgba(0, 0, 255, 0.5) !important;
+    border: 3px solid #0000ff !important;
+  }
+  
+  .word-search-tooltip {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border: 2px solid #ffffff !important;
+  }
+}
+
+/* 减少动画模式 */
+@media (prefers-reduced-motion: reduce) {
+  .word-search-hover,
+  .word-search-clicked,
+  .word-search-tooltip {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .word-search-clicked {
+    transform: none !important;
+  }
+}
+
+/* 移动设备适配 */
+@media (max-width: 768px) {
+  .word-search-tooltip {
+    font-size: 14px !important;
+    padding: 12px 16px !important;
+    border-radius: 12px !important;
+  }
+  
+  .tooltip-icon {
+    font-size: 18px !important;
+  }
+}
+
+/* 确保不影响原有布局 */
+.word-search-hover,
+.word-search-clicked {
+  box-sizing: border-box !important;
+}
+
+/* 防止选择文本时的干扰 */
+.word-search-active ::selection {
+  background: rgba(74, 144, 226, 0.3) !important;
+}
+
+.word-search-active ::-moz-selection {
+  background: rgba(74, 144, 226, 0.3) !important;
+}

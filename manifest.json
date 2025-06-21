@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "单词图片搜索神器",
+  "version": "1.0.0",
+  "description": "按住快捷键点击英文单词，自动跳转到图片搜索页面，帮助学习和记忆单词",
+  
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs"
+  ],
+  
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    }
+  ],
+  
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "单词图片搜索神器设置"
+  },
+  
+  "icons": {
+    "16": "icons/icon16.svg",
+    "32": "icons/icon32.svg",
+    "48": "icons/icon48.svg",
+    "128": "icons/icon128.svg"
+  },
+  
+  "background": {
+    "service_worker": "background.js"
+  }
+}

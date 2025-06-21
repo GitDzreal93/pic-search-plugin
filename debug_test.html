@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Test - Chrome Extension</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .debug-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        .debug-info {
+            background-color: #e3f2fd;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .test-word {
+            background-color: #ffeb3b;
+            padding: 2px 4px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .test-word:hover {
+            background-color: #ffc107;
+        }
+    </style>
+</head>
+<body>
+    <h1>Debug Test Page</h1>
+    
+    <div class="debug-section">
+        <h2>Current Page Information</h2>
+        <div class="debug-info">
+            <p><strong>Domain:</strong> <span id="currentDomain">Loading...</span></p>
+            <p><strong>URL:</strong> <span id="currentUrl">Loading...</span></p>
+            <p><strong>Protocol:</strong> <span id="currentProtocol">Loading...</span></p>
+        </div>
+    </div>
+
+    <div class="debug-section">
+        <h2>Extension Test</h2>
+        <p>Try clicking on these test words while holding the modifier key:</p>
+        <p>
+            <span class="test-word">beautiful</span>, 
+            <span class="test-word">wonderful</span>, 
+            <span class="test-word">amazing</span>, 
+            <span class="test-word">fantastic</span>
+        </p>
+        <div class="debug-info">
+            <p><strong>Instructions:</strong></p>
+            <ol>
+                <li>Click the extension icon to open settings</li>
+                <li>Choose "仅在当前网站启用" (Enable only on current site)</li>
+                <li>Check browser console for debug messages</li>
+                <li>Hold modifier key and click on highlighted words above</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="debug-section">
+        <h2>Console Debug</h2>
+        <div class="debug-info">
+            <p>Open browser console (F12) to see debug messages:</p>
+            <ul>
+                <li>Extension initialization messages</li>
+                <li>Site settings save/load messages</li>
+                <li>Domain parsing information</li>
+                <li>Error messages (if any)</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Display current page information
+        document.getElementById('currentDomain').textContent = window.location.hostname;
+        document.getElementById('currentUrl').textContent = window.location.href;
+        document.getElementById('currentProtocol').textContent = window.location.protocol;
+
+        // Add some debug logging
+        console.log('Debug Test Page Loaded');
+        console.log('Current domain:', window.location.hostname);
+        console.log('Current URL:', window.location.href);
+        
+        // Test domain parsing logic
+        const domain = window.location.hostname;
+        const parts = domain.split('.');
+        let mainDomain = '';
+        
+        if (parts.length >= 2) {
+            mainDomain = parts.slice(-2).join('.');
+        } else {
+            mainDomain = domain;
+        }
+        
+        console.log('Parsed main domain:', mainDomain);
+        console.log('Domain parts:', parts);
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chrome Extension Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .highlight {
+            background-color: #ffeb3b;
+            padding: 2px 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chrome Extension Test Page</h1>
+    
+    <div class="test-section">
+        <h2>Test English Words</h2>
+        <p>This page contains various <strong>English</strong> words for testing the word search extension.</p>
+        <p>Try holding down the modifier key and clicking on words like: <span class="highlight">beautiful</span>, <span class="highlight">wonderful</span>, <span class="highlight">amazing</span>, <span class="highlight">fantastic</span>.</p>
+        <p>You can also test with longer words: <span class="highlight">extraordinary</span>, <span class="highlight">magnificent</span>, <span class="highlight">spectacular</span>.</p>
+    </div>
+
+    <div class="test-section">
+        <h2>Mixed Content</h2>
+        <p>Here we have mixed content with numbers 123 and symbols @#$% that should not trigger the extension.</p>
+        <p>But words like <strong>computer</strong>, <strong>technology</strong>, and <strong>innovation</strong> should work perfectly.</p>
+    </div>
+
+    <div class="test-section">
+        <h2>Common Words</h2>
+        <p>Test with common words: <em>apple</em>, <em>banana</em>, <em>orange</em>, <em>grape</em>, <em>strawberry</em>.</p>
+        <p>Animals: <em>elephant</em>, <em>giraffe</em>, <em>butterfly</em>, <em>dolphin</em>, <em>penguin</em>.</p>
+        <p>Colors: <em>purple</em>, <em>yellow</em>, <em>crimson</em>, <em>turquoise</em>, <em>magenta</em>.</p>
+    </div>
+
+    <div class="test-section">
+        <h2>New Site Management Feature</h2>
+        <p>The extension now has a simplified site management system with 3 easy options:</p>
+        <ul>
+            <li><strong>不启用</strong> - Disable the extension on all websites</li>
+            <li><strong>仅在当前网站启用</strong> - Enable only on the current website (e.g., this page)</li>
+            <li><strong>在主域名启用</strong> - Enable on the main domain and all its subdomains</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>Instructions</h2>
+        <ol>
+            <li>Install the Chrome extension</li>
+            <li>Click the extension icon to open settings</li>
+            <li>Choose one of the 3 site management options</li>
+            <li>Hold down the modifier key (Command on Mac, Ctrl on Windows)</li>
+            <li>Click on any English word on this page</li>
+            <li>The extension should open an image search for that word (if enabled for this site)</li>
+        </ol>
+    </div>
+</body>
+</html>

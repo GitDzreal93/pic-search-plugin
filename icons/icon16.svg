@@ -1,0 +1,20 @@
+<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradient16" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- 背景圆形 -->
+  <circle cx="8" cy="8" r="7" fill="url(#gradient16)" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+  
+  <!-- 放大镜主体 -->
+  <circle cx="6" cy="6" r="2.5" fill="none" stroke="white" stroke-width="1" stroke-linecap="round"/>
+  
+  <!-- 放大镜手柄 -->
+  <line x1="8" y1="8" x2="11" y2="11" stroke="white" stroke-width="1" stroke-linecap="round"/>
+  
+  <!-- 字母W -->
+  <path d="M4 4.5 L4.5 7 L5 5.5 L5.5 7 L6 4.5" fill="none" stroke="white" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
